@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-app3-nodeport-service
+  labels: 
+    app: myapp3 
+spec:
+  ports:
+    - name: http
+      port: 8080 #Service Port 
+      targetPort: 8080 #Container Port 
+      nodePort: 31212 # NodePort 
+  selector:   
+      app: myapp3   # metadata.name.label.*
+  type: NodePort  # LoadBalancer , externalName, ClusterIP 

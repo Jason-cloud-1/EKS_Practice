@@ -1,0 +1,15 @@
+apiVersion: v1 #string 
+kind: Pod
+metadata:  #Dictionary /Map
+  name: my-app
+  labels: # Dic
+    app: myapp
+spec:
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  containers:  #List 
+    - name: myapp
+      image: nginx:latest
+      ports: 
+        - containerPort: 80
+      imagePullPolicy: IfNotPresent

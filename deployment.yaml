@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-example
+  labels: myapp3 
+
+spec:
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-pod
+      labels:
+        app: myapp3
+    spec:
+      containers:
+      - name: nginx
+        image: tomcat:latest
+        ports:
+        - containerPort: 8080
